@@ -38,6 +38,6 @@ resource "aws_instance" "terra" {
 
 
   tags = {
-    name = {first_terraform-module}
+    name = {first_terraform_module}
   }
 }
