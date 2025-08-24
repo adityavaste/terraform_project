@@ -7,7 +7,7 @@ vpc_id = "var.vpc_id"
 ingress {
 from_port = 22
 to_port = 22
-cidr_blocks = "var.my_ip"
+cidr_blocks = var.my_ip
 protocol = "tcp"
 }
 ingress {
@@ -31,13 +31,13 @@ egress {
 }
 
 resource "aws_instance" "terra" {
-  ami_id = var.ami_id
+  ami = var.ami_id
   instance_type = var.instance_type
   security_groups = aws_security_group.s_g
   key_name = var.key_name
-
+  subnet_id = var.subnet_id
 
   tags = {
-    name = {first_terraform_module}
+    name = "{first_terraform_module}"
   }
 }
